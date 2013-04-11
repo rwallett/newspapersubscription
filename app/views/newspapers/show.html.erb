@@ -1,0 +1,24 @@
+<h1><%= @newspaper.title %></h1>
+Editor: <%= @newspaper.editor %>
+<br>
+Subscription Plans:
+<ul>
+	<% @newspaper.sub_plans.each do |s| %>
+	<%= "Monthly Price: $#{s.price}0" %>
+	<br>
+		<% if s.daily == true %>
+			<%= "Subscription type: Daily" %>
+		<% else %>
+			<%= "Subscription type: Weekly" %>
+		<% end %>
+		<br>
+		<br>
+	<% end %>
+<br>
+</ul>
+<%= link_to "Create New Subscription Plan", new_newspaper_sub_plan_path(@newspaper)%>
+<br>
+<%= button_to "Delete Newspaper", @newspaper, :method => :delete, confirm: "Really delete this newspaper?" %>
+<br>
+<br>
+<%= link_to "All Newspapers", newspapers_path %>

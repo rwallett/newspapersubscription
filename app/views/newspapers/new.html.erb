@@ -1,0 +1,31 @@
+<h1>Create Newspaper</h1>
+	<%= form_for(@newspaper) do |f| %>
+		<%= f.label :title %>
+		<br>
+		<%= f.text_field :title %>
+		<br>
+		<br>
+		<%= f.label :editor %>
+		<br>
+		<%= f.text_field :editor %>
+		<br>
+		<br>
+		<%= f.fields_for(:sub_plans) do |s| %> 
+		<% # NOTE: GOT STUCK HERE @sub_plans %>
+			<%= s.label :price %>
+			<%= s.number_field :price %>
+			<br>
+			<br>
+			<%= s.radio_button(:daily, true, checked: true) %>
+			<%= s.label :daily, "Daily", :value => true %>
+			<%= s.radio_button(:daily, false) %>
+			<%= s.label :daily, "Weekly", :value => false %>
+			<% end %>
+			<br>
+			<br>
+		<%= f.submit %>
+		<% end %>
+	<br>
+
+	<br>
+	<%= link_to "All Newspapers", newspapers_path %>

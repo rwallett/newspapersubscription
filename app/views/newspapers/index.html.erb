@@ -1,0 +1,10 @@
+<h1>Newspapers</h1>
+<ul>
+<% @newspapers.each do |n| %>
+<%= link_to n.title, newspaper_path(n) %>
+<br>
+<% end %>
+</ul>
+<br>
+<br>
+<%= link_to "Create Newspaper", new_newspaper_path %>
